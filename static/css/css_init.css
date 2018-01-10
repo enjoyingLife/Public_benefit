@@ -1,0 +1,20 @@
+ blockquote, body, button, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, hr, input, legend, li, ol, p, pre, td, textarea, th, ul{
+        margin: 0;
+        padding: 0;
+        }
+        ul,ol{
+            list-style: none;
+            /* 去掉列表的项目符号 */
+        }
+        body{
+            font-size: 16px;
+            color: #333;
+            /*font-family: "宋体";*/
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        a:hover{
+            color: red;
+        }

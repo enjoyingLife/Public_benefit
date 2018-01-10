@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{%  load static from staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录验证</title>
+    <style>
+        #errmsg{
+            background-color: red;
+            display: none;
+        }
+    </style>
+    <script src="/static/js/jquery-1.12.4.min.js"></script>
+    <script>
+
+    $(function () {
+        // 创建点击事件
+        $('#user').click(function () {
+            // 记录用户输入的数据
+            var username = $('#username').val();
+            var password = $('#password').val();
+            // 记录post请求中csrf中的数据
+            var csrf = $('input[name="csrfmiddlewaretoken"]').val();
+            // 以字典的形式将数据传给视图函数
+            var dict = {'username': username, 'password': password,
+                        'csrfmiddlewaretoken': csrf};
+
+            // 发送ajax请求 接收返回的json数据  开启回调函数
+            $.post('/user/login_check', dict,function (data) {
+                var res = data.res;
+                $.each(res, function (index, item) {
+
+
+                    if (username == item[0]){
+
+                        if(password == item[1]){
+// -------------------需要更改用户个人后台路径------------------
+                            location.href = '/'
+                        }
+                    }
+                    else {$("#errmsg").text('用户名或密码错误').show()}
+                })
+
+            })
+
+        });
+    })
+
+
+    </script>
+</head>
+<body>
+
+{% csrf_token %}
+    用户名：<input type="text" id="username"><br/>
+    密码：<input type="password" id="password"><br/>
+<input type="button" id="user" value="登录">
+<div id="errmsg"></div>
+
+</body>
+</html>

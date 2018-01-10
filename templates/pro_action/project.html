@@ -1,0 +1,24 @@
+{% extends 'welcome/index.html' %}
+{% block title %}
+    慈善项目
+{% endblock title %}
+{% block content %}
+    {% block pro_menu_li %}
+    <ul class="pro_menu">
+        <li><a href="">助医项目</a></li>
+        <li><a href="">助学项目</a></li>
+        <li><a href="">助教项目</a></li>
+        <li><a href="">其他</a></li>
+        <input type="button" id="apply" value="申请项目">
+    </ul>
+    {% endblock pro_menu_li %}
+    {% block pro_title_li %}
+    <ul class="pro_title">
+        <li><a href="">交大138名医学生获市会唯爱基金奖励资助</a><input type="button" value="关注"></li>
+        <li><a href="">2018千店义卖为老人和大病群体送关爱</a><input type="button" value="关注"></li>
+        <li><a href="">"安利之夜"音乐会奏响新年慈善乐章</a><input type="button" value="关注"></li>
+        <li><a href="">虹口机关干部"慈善一日捐"筹款19万余元</a><input type="button" value="关注"></li>
+        <li><a href="">奉贤区领导干部捐款帮助困难家庭过好年</a><input type="button" value="关注"></li>
+    </ul>
+    {% endblock pro_title_li %}
+{% endblock content %}

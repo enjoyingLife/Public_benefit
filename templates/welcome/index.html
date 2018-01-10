@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static from staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}首页{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/project.css' %}">
+    <link rel="stylesheet" href="{% static 'css/css_init.css' %}">
+    <script src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'js/project.js' %}"></script>
+</head>
+<body>
+{% block body %}
+    {% block logo %}
+        <div class="top">
+            <div class="left">logo</div>
+           <ul class="user">
+               <li><a href="{% url 'user:show_register' %}">注册</a></li>
+               <li><a href="{% url 'user:login' %}">未登录</a></li>
+               <li><a href="">欢迎您：王杨</a></li>
+           </ul>
+           <div class="date">2018年1月7号  天气：晴</div>
+        </div>
+        <div class="menuOuter">
+            <div class="menu">
+                <ul class="menu_ul">
+                    <li><a href="">信息公开</a></li>
+                    <li><a href="{% url 'pro_action:show_project' %}" id="project">慈善项目</a></li>
+                    <li><a href="{% url 'pro_action:show_action' %}">慈善行动</a></li>
+                    <li><a href="">我要捐赠</a></li>
+                </ul>
+            </div>
+        </div>
+    {% endblock logo %}
+        <div class="content">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    {% block bottom %}
+        <div class="bottomOuter">
+            <div class="bottom"></div>
+        </div>
+    {% endblock bottom %}
+{% endblock body %}
+</body>
+</html>
